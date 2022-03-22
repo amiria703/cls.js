@@ -14,6 +14,8 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
+    
+    - name: git-checkout
     - uses: actions/checkout@v2
     
     - name: Setup Nodejs
@@ -29,7 +31,7 @@ jobs:
     - run: npm run docs:build
   
     - name: Push
-      uses: s0/git-publish-subdir-action@develop
+    - uses: s0/git-publish-subdir-action@develop
       env:
           REPO: self
           BRANCH: docs-deployed
